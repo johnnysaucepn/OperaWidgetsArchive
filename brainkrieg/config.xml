@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<widget>
+	<widgetname>Brainkrieg</widgetname>
+	<id>
+		<host>www.touchthe.net</host>
+		<name>Brainkrieg</name>
+		<revised>2008-11</revised>
+	</id>
+	<width>240</width>
+	<height>320</height>
+	<description>Train your brain! Try the training games, or go for the test and compare your mental age against others around the world.</description>
+	<author>
+		<name>James Howat</name>
+		<organization>touchtheNet</organization>
+		<email>james@touchthe.net</email>
+		<link>http://www.touchthe.net</link>
+	</author>
+	<icon>appicon.png</icon>
+	<security>
+		<access>
+			<protocol>http</protocol>	    
+			<port>80</port>
+			<host>www.touchthe.net</host>
+			<host>services.touchthe.net</host>
+			<host>xmlstore.labs.opera.com</host>
+		</access>  
+	</security>
+</widget>

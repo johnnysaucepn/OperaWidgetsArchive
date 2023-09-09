@@ -1,0 +1,21 @@
+html,body { width:320px; height:240px; }
+#body-container { background-image:url(landscape.png); }
+
+ul.menu button, ol.menu button { width:140px; }
+
+#main .menu button { background:url(../img/main-landscape.png) center center no-repeat; color:white; }
+#main .menu button:disabled { background:url(../img/menu-landscape-disabled.png) center center no-repeat; }
+#training .menu button { background:url(../img/select-landscape.png) center center no-repeat; color:white; }
+#training .menu button:disabled { background:url(../img/select-landscape-disabled.png) center center no-repeat; }
+
+.face { position:absolute; top:0px; left:0px; width:320px; height:240px; }
+
+.numberpad { position:absolute; top:140px; left:232px; width:96px; height:96px; }
+.custompad { position:absolute; top:140px; left:228px; width:96px; height:96px; }
+
+#game-question { top:5px; left:5px; font-size:larger; font-weight:bold; }
+#game-play { top:25px; left:5px; width:218px; height:208px; }
+#game-status { top:20px; right:0px; }
+#game-right, #game-wrong { left:270px; top:113px; }
+
+#history-list {  width:280px; height:200px; overflow:auto; }

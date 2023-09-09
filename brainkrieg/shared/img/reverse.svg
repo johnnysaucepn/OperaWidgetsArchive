@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" preserveAspectRatio="none" width="100%" height="100%"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+        <defs>
+
+		<!-- Brushed metal filter from http://jan.kollhof.net/projects/svg/examples/tutorials.xhtml -->
+
+		<filter id="brushedmetal" filterUnits="objectBoundingBox" x="-10%" y="-10%" width="120%" height="120%" >
+		    <!-- creating noise -->
+		    <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" seed="11" result="fnoise"/>
+		    <!-- desaturating the noise -->
+		    <feColorMatrix type="saturate" in="fnoise" values="0" result="desat"/>
+		     <!-- motion blur on noise to get a brush effect -->
+		    <feGaussianBlur stdDeviation="20, 0.01" in="desat" result="blur"/>
+		    <!-- merging it with the original -->
+		    <feComposite  in="blur" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="merge"/>
+		    <!-- masking the filters with original alpha channel -->
+		    <feComposite in="merge" in2="SourceAlpha" operator="in" result="mask"/>
+		</filter>
+		
+		<linearGradient id="fadeEdge" gradientUnits="objectBoundingBox" x1="0%" y1="0%" x2="0%" y2="100%">
+			<stop stop-color="#888" stop-opacity="1.0" offset="0"/>
+			<stop stop-color="#888" stop-opacity="0.0" offset="0.5"/>
+			<stop stop-color="#000" stop-opacity="0.0" offset="0.5"/>
+			<stop stop-color="#000" stop-opacity="1.0" offset="1"/>
+		</linearGradient>
+
+
+		<rect id="panelShape" x="1%" y="1%" width="98%" height="98%" rx="15" ry="15" />
+	</defs>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<g id="face" filter="url(#brushedmetal)">
+		<use id="baseColour" xlink:href="#panelShape" fill="#666666" stroke="#666666" stroke-width="2" />
+		<use xlink:href="#panelShape" fill="none" stroke="url(#fadeEdge)" stroke-width="2"  />
+	</g>
+
+</svg>

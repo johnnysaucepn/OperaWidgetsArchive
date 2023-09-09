@@ -1,0 +1,107 @@
+/*************************************************************************************************
+
+License terms as defined in the file license.txt, which MUST be distributed unmodified with this file.
+
+**************************************************************************************************/
+
+html, body { margin:0; padding:0; width:240px; height:320px; position:absolute; font-family:"Lucida Grande", "Bitstream Vera Sans", sans-serif; font-size:10px; }
+#body-container { position:absolute; top:0px; left:0px; background:top left no-repeat; width:100%; height:100%; }
+#body-page { position:absolute; top:0px; left:0px; width:100%; height:100%; }
+.face { position:absolute; top:0px; left:0px; width:240px; height:320px; }
+a { color: #36f; text-decoration:none; }
+a:hover { color: #00f; }
+
+button { -apple-dashboard-region: dashboard-region(control rectangle 0px 0px 0px 0px);  }
+
+ul.menu, ol.menu { list-style-type:none; margin:0px; padding:0px; }
+ul.menu li, ol.menu li {  }
+ul.menu button, ol.menu button { display:inline-block; font-family:"Komika", "PizzaDudesHandwriting", "Comic Sans", cursive; font-size:16px; float:left; margin:10px; width:220px; height:30px; line-height:30px; padding:0px; border:none; }
+ul.menu span, ol.menu span { display:inline; }
+
+h1 { font-size:200%; text-align:left; font-family: "PizzaDudesHandwriting", "Trebuchet MS", sans-serif;  position:absolute; top:10px; left:10px;}
+h2 { margin:10px; font-family: "PizzaDudesHandwriting", "Trebuchet MS", sans-serif;}
+p { margin:10px;  font-family:"Komika",  "Fuder", "Comic Sans MS", cursive; font-size:14px;}
+h4 { margin:0px;  font-family:"Komika", "Fuder", "Trebuchet MS", sans-serif; font-weight:normal;}
+
+#body-buttons button { width:18px; height:18px; background: url(img/button-square-18px.png) 0% 0%; border:none; padding:0px; margin:0px; }
+#body-pin { position:absolute; top:5px; right:49px; z-index:20; }
+#body-config { position:absolute; top:5px; right:27px; z-index:20; }
+#body-close { position:absolute; top:5px; right:5px; z-index:20; }
+#body-busy { position:absolute; top:6px; right:48px; }
+#body-buttons button.selected { background-position:0% 200%; }
+
+#menu-loggedin { position:absolute; bottom:5px; left:5px; }
+
+button.action { position:absolute; display:block; width:52px; height:26px; background-image:url(img/action.png); margin:0px; color:white; }
+button.action span { margin-top:5px; display:block; color:white; }
+button.action.back { bottom:5px; left:5px; background-image:url(img/back.png); }
+button.action.forward { bottom:5px; right:5px; background-image:url(img/forward.png); }
+button.action.pause { bottom:5px; right:5px; }
+
+#main .menu { position:relative; top:40px; }
+#main .menu button { background:url(img/main-portrait.svg) center center no-repeat; color:black; }
+#main .menu button:disabled { background:url(img/menu-portrait-disabled.svg) center center no-repeat; color:grey; }
+
+#training .menu button { background:url(img/select-portrait.svg) center center no-repeat; color:black; }
+#training .menu button:disabled { background:url(img/menu-portrait-disabled.svg) center center no-repeat; color:grey; }
+
+.numberpad { position:absolute; left:5px; bottom:5px; width:96px; height:96px; z-index:1; }
+.numberpad .button { width:26px; height:22px; margin:1px; padding:0px; background-image:url(img/numberpad-button.png); vertical-align:middle; }
+.numberpad .button span { display:inline-block; margin-top:3px; }
+.numberpad .button.double { width:54px; background-image:url(img/numberpad-doublebutton.png); }
+.numberpad .button.spaceleft { margin-left:30px; }
+
+.custompad { position:absolute; left:5px; bottom:5px; width:96px; height:96px; text-align:center;}
+.custompad .button { width:26px; height:26px; margin:1px; padding:0px; background-image:url(img/custompad-button.png); vertical-align:middle; }
+.custompad .button img { display:inline-block; margin:5px; }
+
+
+#game-question { position:absolute; top:25px; left:5px;  }
+#game-play { position:absolute; top:40px; left:5px; width:228px; height:170px; overflow:hidden;  border: dashed 1px black; font-family:Arial; font-weight:bold;}
+
+
+#game-status { position:absolute; top:220px; right:0px; width:75px; font-size:150%; }
+#game-status div { padding:2px 0px 0px 25px; margin:5px 0px 5px 2px; height:20px; border:solid 1px black; border-right:none; vertical-align:middle; }
+#game-answer { background:url(img/input.png) 2px center no-repeat; }
+#game-timer { background:url(img/timer.png) 2px center no-repeat; } 
+#game-count { background:url(img/score.png) 2px center no-repeat; }
+
+.smoked { position:absolute; top:0px; left:0px; width:100%; height:100%; background:black; opacity:0.5; }
+
+/* Icons from http://www.fineicons.com/en/free-icons/web-symbols/ */
+#game-right { position:absolute; left:115px; top:255px; width:22px; height:22px; background:url(img/tick-glow.png) top left no-repeat; }
+#game-wrong { position:absolute; left:115px; top:255px; width:22px; height:22px; background:url(img/cross-glow.png) top left no-repeat; }
+
+.missing-blocker { position:absolute; background:url(img/bricks.png) top left repeat-x; width:100%; height:32px;  z-index:5; }
+.missing-tileholder { position:absolute; top:0px; left:0px; height:22px; width:100%; }
+.missing-tile { position:absolute; background:url(img/tile-bg.png) top left no-repeat; width:26px; height:26px; padding:5px;}
+.missing-tile.missing-hidden { background:url(img/tile-hidden-bg.png) top left no-repeat; }
+.missing-tile.missing-hidden img { visibility:hidden; }
+
+.arithmetic1-question { position:absolute; font-size:200%; top:0px; left:0px; vertical-align:middle; }
+.arithmetic1-question div { display:inline-block; margin:0em 0.2em;}
+.arithmetic1-question .arithmetic1-hidden { border: 1px solid black; z-index:5; padding:0em 0.2em; }
+.arithmetic1-question .arithmetic1-hidden span { visibility:hidden; }
+
+.estimatearea-container { position:absolute; overflow:hidden; }
+.estimatearea-set { position:absolute; }
+.estimatearea-set .tile { position:absolute; }
+
+
+#config-settings { margin:10px; }
+#config-login label { display:inline-block; width:60px; }
+#config-login input[type=text], #config-login input[type=password] { display:inline-block; width:100px; }
+#config-login button[type=submit] { position:absolute; top:100px; right:5px; background-image:url(img/action.png); }
+
+#config-update-details { visibility:hidden; }
+#config-update-text { height: 60px; overflow:auto; }
+#config-update-download { position:absolute; bottom:0px; right:5px; }
+
+#trainingresult-report { font-size:150%; }
+
+#history-list { position:absolute; top:30px; left:10px; width:225px; height:240px; overflow:auto; }
+#history-list h4 { margin:0; padding:0; }
+
+#history-list table { border:none; border-collapse:collapse; }
+
+#history-list th { text-align:left; }

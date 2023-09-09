@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1" preserveAspectRatio="none" width="100%" height="100%"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+        <defs>
+		<linearGradient id="fadeSurface" gradientUnits="objectBoundingBox" x1="0%" y1="0%" x2="0%" y2="100%">
+			<stop stop-color="#000" stop-opacity="0.0" offset="0"/>
+			<stop stop-color="#000" stop-opacity="0.5" offset="1"/>
+		</linearGradient>
+
+		<linearGradient id="fadeLighting" gradientUnits="objectBoundingBox" x1="0%" y1="0%" x2="100%" y2="0%">
+			<stop stop-color="#fff" stop-opacity="0.0" offset="0"/>
+			<stop stop-color="#fff" stop-opacity="0.1" offset="0.4"/>
+			<stop stop-color="#fff" stop-opacity="0.12" offset="0.5"/>
+			<stop stop-color="#fff" stop-opacity="0.1" offset="0.6"/>
+			<stop stop-color="#fff" stop-opacity="0.0" offset="1"/>
+		</linearGradient>
+
+		<linearGradient id="fadeGloss" gradientUnits="objectBoundingBox" x1="0%" y1="0%" x2="0%" y2="100%">
+			<stop stop-color="#fff" stop-opacity="0.5" offset="0"/>
+			<stop stop-color="#fff" stop-opacity="0.2" offset="0.2"/>
+			<stop stop-color="#fff" stop-opacity="0.0" offset="0.5"/>
+		</linearGradient>
+
+
+		<linearGradient id="fadeEdge" gradientUnits="objectBoundingBox" x1="0%" y1="0%" x2="0%" y2="100%">
+			<stop stop-color="#fff" stop-opacity="0.5" offset="0"/>
+			<stop stop-color="#fff" stop-opacity="0.0" offset="0.5"/>
+			<stop stop-color="#000" stop-opacity="0.0" offset="0.5"/>
+			<stop stop-color="#000" stop-opacity="0.5" offset="1"/>
+		</linearGradient>
+
+		<rect id="panelShape" x="1%" y="1%" width="98%" height="98%" rx="15" ry="15" />
+	</defs>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<g id="face">
+		<use id="baseColour" xlink:href="#panelShape" fill="red" stroke="red" stroke-width="2" />
+		<use xlink:href="#panelShape" fill="url(#fadeLighting)" stroke="none" />
+		<use xlink:href="#panelShape" fill="url(#fadeGloss)" stroke="none" />
+		<use xlink:href="#panelShape" fill="url(#fadeSurface)" stroke="none" />
+		<use xlink:href="#panelShape" fill="none" stroke="url(#fadeEdge)" stroke-width="2"  />
+
+	</g>
+
+</svg>

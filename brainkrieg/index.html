@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!-- *************************************************************************************************
+
+License terms as defined in the file license.txt, which MUST be distributed unmodified with this file.
+
+************************************************************************************************** -->
+<html>
+	<head>
+		<title>Brainkrieg</title>
+
+		<script type="text/javascript">if(parent.emulator)parent.emulator.begin(window);</script>
+
+		<!-- include CSS files -->
+		<link rel="stylesheet" type="text/css" media="screen,tv" href="fonts.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="shared/shared.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="brainkrieg.css" />
+		<link rel="stylesheet" type="text/css" media="screen,tv" href="desktop/portrait.css" />
+		<link rel="stylesheet" type="text/css" media="handheld and (device-aspect-ratio: 3/4)" href="mobile/portrait.css" />
+		<link rel="stylesheet" type="text/css" media="handheld and (device-aspect-ratio: 4/3)" href="mobile/landscape.css" />
+
+		<!-- include script libraries, from Yahoo, Opera and touchtheNet -->
+		<script type="text/javascript" src="shared/lib/jquery-1.3.1.min.js"></script>
+
+		<script type="text/javascript" src="shared/lib/opera/testMediaQuery.js"></script>
+
+		<script type="text/javascript" src="shared/lib/touchtheNet/utils.js"></script>
+		<script type="text/javascript" src="shared/lib/touchtheNet/alert.js"></script>
+		<script type="text/javascript" src="shared/lib/touchtheNet/preference.js"></script>
+		<script type="text/javascript" src="shared/lib/touchtheNet/newschecker.js"></script>
+		<script type="text/javascript" src="shared/lib/touchtheNet/face.js"></script>
+		<script type="text/javascript" src="shared/lib/touchtheNet/throbber.js"></script>
+		<script type="text/javascript" src="shared/lib/touchtheNet/mediaconfig.js"></script>
+
+		<!-- include widget-specific scripts -->
+		<script type="text/javascript" src="keypad.js"></script>
+		<script type="text/javascript" src="timer.js"></script>
+		<script type="text/javascript" src="user.js"></script>
+		<script type="text/javascript" src="gamecontroller.js"></script>
+		<script type="text/javascript" src="games.js"></script>
+		<script type="text/javascript" src="games/game1.js"></script>
+		<script type="text/javascript" src="games/game2.js"></script>
+		<script type="text/javascript" src="games/game3.js"></script>
+		<script type="text/javascript" src="games/game4.js"></script>
+		<script type="text/javascript" src="brainkrieg.js"></script>
+
+
+	</head>
+
+	<body>
+		<div id="body-container" class="paper">
+		<div id="body-page">
+
+		<div id="body-buttons">
+			<button type="button" class="button" id="body-pin"><img src="shared/img/pin-18px.png" alt="Pin" /></button>
+			<button type="button" class="button" id="body-config"><img src="shared/img/config-18px.png" alt="Config" /></button>
+			<button type="button" class="button" id="body-close"><img src="shared/img/close-18px.png" alt="Close" /></button>
+			<div id="body-busy" class="throbber"></div>
+		</div>
+
+		<!-- the main menu page -->
+		<div id="main" class="face">
+
+			<h1><span>Brainkrieg!</span></h1>
+
+			<ul class="menu">
+				<li><button type="button" id="main-training"><span>Daily Training</span></button></li>
+				<li><button type="button" id="main-test"><span>Daily Test</span></button></li>
+				<li><button type="button" id="main-history"><span>History</span></button></li>
+				<li><button type="button" id="main-config"><span>Settings</span></button></li>
+			</ul>
+
+			<div id="menu-loggedin">Logged in as <span id="menu-username">nobody</span></div>
+
+		</div>
+
+		<div id="training" class="face">
+			<h2><span>Game Selection</span></h2>
+
+			<ul class="menu">
+				<li>Games go here</li>
+			</ul>
+
+			<button type="button" class="button action back" id="training-back"><span>Back</span></button>
+		</div>
+
+		<div id="test" class="face">
+			<h2><span>Brain Test</span></h2>
+
+			<p>You will now be tested on a selection of games, selected at random.</p>
+
+			<p>At the end, your score will be saved. If you are online, we will compare you against
+			others and estimate your mental age.</p>
+
+			<button type="button" class="button action forward" id="test-start"><span>Start!</span></button>
+			<button type="button" class="button action back" id="test-back"><span>Back</span></button>
+		</div>
+
+		<!-- the instructions page -->
+		<div id="instruct" class="face">
+
+			<h2><span>Instructions</span></h2>
+
+			<p id="instruct-text">These are the instructions for this game. Good luck!</p>
+
+			<p id="instruct-onceperday"><strong>You have already completed this training today. This result will not be saved.</strong></p>
+
+			<button type="button" class="button action forward" id="instruct-start"><span>Start!</span></button>
+			<button type="button" class="button action back" id="instruct-back"><span>Back</span></button>
+
+		</div>
+
+		<!-- the game playfield -->
+		<div id="game" class="face">
+
+			<h4 id="game-question"></h4>
+
+			<div id="game-play"></div>
+
+			<div id="game-controls">
+				<div id="game-numberpad" class="numberpad">
+
+				</div>
+
+				<div id="game-custompad" class="custompad">
+					<div id="game-custom-spacer"></div>
+				</div>
+			</div>
+
+			<div id="game-status">
+				<div id="game-answer"></div>
+				<div id="game-timer"></div>
+				<div id="game-count"></div>
+			</div>
+
+			<div id="game-right"></div>
+			<div id="game-wrong"></div>
+
+			<!--<button type="button" class="button action pause" id="game-pause"><span>Pause</span></button>
+			<button type="button" class="button action pause" id="game-resume"><span>Resume</span></button>-->
+
+
+
+
+		</div>
+
+		<div id="testresult" class="face">
+
+			<h2><span>Brain Test Results</span></h2>
+
+			<p>Thank you!</p>
+
+			<p id="testresult-busy">Please wait while we calculate your score.</p>
+
+			<div id="testresult-result">
+				<p>Based on your test results, you have a Brainkrieg age of...</p>
+				<p id="testresult-age">99</p>
+
+				<p id="testresult-advice">Keep working to improve this!</p>
+			</div>
+
+			<div id="testresult-pending">
+				<p>We're currently still accumulating data so we can estimate your Brainkrieg age.</p>
+				<p>Please keep taking the tests so we can get an accurate picture!</p>
+			</div>
+
+			<button type="button" class="button action back" id="testresult-back"><span>Menu</span></button>
+		</div>
+
+		<div id="trainingresult" class="face">
+			<h2>Finished!</h2>
+			<div id="trainingresult-report">
+				<p>You answered <span id="trainingresult-total">0 / 0</span> questions correctly.</p>
+				<p>That gives you a score of <span id="trainingresult-score">0</span> points.</p>
+				<p id="trainingresult-record"><strong>New personal high score!</strong></p>
+				<button type="button" class="button action back" id="trainingresult-back"><span>Back</span></button>
+			</div>
+		</div>
+
+
+
+		<!-- the history page -->
+		<div id="history" class="face">
+
+			<div id="history-list">
+			</div>
+
+			<button type="button" class="button action back" id="history-back"><span>Back</span></button>
+		</div>
+
+		<!-- the settings page -->
+		<div id="config" class="face">
+			<h2>Configuration</h2>
+
+			<div id="config-settings">
+				<ul class="compact">
+					<li><label><span>Opacity</span><input id="config-opacity" type="range" min="0.1" max="1.0" step="0.01" value="1.0" /></label></li>
+					<li><label><input id="config-fast" type="checkbox" name="fast" /> <span>Disable animation effects</span></label></li>
+					<li><label><input id="config-update" type="checkbox" name="checkupdates" /> <span>Check for new version on start</span></label></li>
+				</ul>
+
+				<form id="config-login">
+					<div><label>Username</label><input type="text" id="config-username"/></div>
+					<div><label>Password</label><input type="password" id="config-password" /></div>
+					<div><button class="button action" type="submit"><span>Login</span></button></div>
+				</form>
+			</div>
+
+			<p id="config-update-none">No updates currently available.</p>
+
+			<div id="config-update-details">
+				<h4><a id="config-update-link" href="http://widgets.opera.com/widget/11391/"><span id="config-update-title">Brainkrieg</span></a> - <span id="config-update-date">1st Jan 1970</span></h4>
+				<p id="config-update-text">Update details go here.</p>
+			</div>
+
+			<p id="config-update-download"><a href="http://widgets.opera.com/widget/11391/">Download latest version</a></p>
+
+			<button type="button" class="action button back" id="config-back"><span>Back</span></button>
+
+		</div>
+
+	</div>
+	</div>
+	</body>
+
+</html>
