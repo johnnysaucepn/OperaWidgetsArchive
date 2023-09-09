@@ -40,25 +40,25 @@ HTMLElement.prototype.removeClassName = function (oldClass)
 	this.className = classArray.join(" ");
 }
 
-HTMLElement.prototype.hasClassName = function (class)
+HTMLElement.prototype.hasClassName = function (thisClass)
 {
 	var classArray = this.className.split(" ");
 	for (var i=0; i<classArray.length; i++)
 	{
-		if (classArray[i] == class) 
+		if (classArray[i] == thisClass) 
 		return true;
 	}
 	return false;
 }
 
-HTMLElement.prototype.getElementsByClassName = function(class, tagName)
+HTMLElement.prototype.getElementsByClassName = function(thisClass, tagName)
 {
 	if (!tagName) tagName = "*";
 	var elems = this.getElementsByTagName(tagName);
 	var list = [];
 	for (var i=0; i<elems.length; i++)
 	{
-		if (elems[i].hasClassName(class))
+		if (elems[i].hasClassName(thisClass))
 			list.push(elems[i]);
 	}
 	return list;
