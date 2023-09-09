@@ -19,7 +19,7 @@ var gameController = new function GameController()
 	var numberBuffer = "";
 	self.customPad = new CustomPad();
 	self.game = null;
-	self.timer = new Timer();
+	self.timer = new CountdownTimer();
 	self.scaleFactor = 1.0;
 	
 	var frameTimer = null;
